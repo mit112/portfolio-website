@@ -14,7 +14,7 @@ export default function SectionHeading({ dotaName, plainName, id }: SectionHeadi
       {/* Dota name - decorative, with metallic underline */}
       <span
         aria-hidden="true"
-        className="block font-display text-3xl md:text-[2.5rem] font-bold uppercase tracking-[3px] text-text-primary text-glow-teal select-none metallic-underline"
+        className="block font-display text-3xl md:text-[2.5rem] font-bold uppercase tracking-[3px] text-text-primary text-glow-primary select-none metallic-underline"
       >
         {dotaName}
       </span>

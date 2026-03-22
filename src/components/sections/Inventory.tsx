@@ -1,25 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { inventory } from "@/data/skills";
-import {
-  BKBIcon,
-  BlinkDaggerIcon,
-  ForceStaffIcon,
-  BootsOfTravelIcon,
-  TomeOfKnowledgeIcon,
-  PhaseBootsIcon,
-  WardIcon,
-} from "@/components/icons/DotaAssets";
 
-const itemIcons: Record<string, React.ComponentType<{size?: number; className?: string}>> = {
-  "Swift": BKBIcon,
-  "SwiftUI": ForceStaffIcon,
-  "UIKit": PhaseBootsIcon,
-  "Firebase": BlinkDaggerIcon,
-  "MVVM": WardIcon,
-  "async/await": BlinkDaggerIcon,
+const itemImages: Record<string, string> = {
+  "Swift": "/dota/item-bkb.png",
+  "SwiftUI": "/dota/item-forcestaff.png",
+  "UIKit": "/dota/item-phaseboots.png",
+  "Firebase": "/dota/item-blink.png",
+  "MVVM": "/dota/item-ward.png",
+  "async/await": "/dota/item-scepter.png",
 };
 
 export default function Inventory() {
@@ -32,8 +24,8 @@ export default function Inventory() {
   return (
     <section className="section-dark relative py-20 md:py-28 overflow-hidden">
       {/* Atmospheric glow spots */}
-      <div className="glow-spot glow-spot--teal absolute right-1/4 top-1/3 opacity-[0.12]" />
-      <div className="glow-spot glow-spot--teal absolute left-[10%] bottom-[20%] opacity-[0.08]" />
+      <div className="glow-spot glow-spot--primary absolute right-1/4 top-1/3 opacity-[0.12]" />
+      <div className="glow-spot glow-spot--primary absolute left-[10%] bottom-[20%] opacity-[0.08]" />
 
       <div className="max-w-4xl mx-auto px-6">
         <SectionHeading dotaName="INVENTORY" plainName="Tech Stack" id="items" />
@@ -46,7 +38,7 @@ export default function Inventory() {
                 Main Items
               </span>
               <div className="h-px flex-1 bg-gradient-to-r from-border-subtle/60 to-transparent" />
-              <span className="text-[9px] font-mono text-text-muted/60">
+              <span className="text-[9px] font-mono text-text-muted">
                 6 / 6
               </span>
             </div>
@@ -54,7 +46,7 @@ export default function Inventory() {
             {/* The outer frame — mimics the Dota HUD inventory border */}
             <div className="relative rounded border border-border-subtle/60 bg-gradient-to-b from-bg-hud/80 to-bg-primary/60 p-[6px]">
               {/* Inner glow line along top edge */}
-              <div className="absolute top-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-accent-teal/20 to-transparent" />
+              <div className="absolute top-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-accent-primary/20 to-transparent" />
 
               <div className="grid grid-cols-3 md:grid-cols-6 gap-[3px]">
                 {mainItems.map((item, i) => (
@@ -65,19 +57,21 @@ export default function Inventory() {
                     onMouseLeave={() => setHoveredItem(null)}
                   >
                     {/* Slot number — top-left like Dota keybinds */}
-                    <span className="absolute top-1.5 left-2 text-[8px] font-mono text-text-muted/60 group-hover:text-accent-teal/70 transition-colors">
+                    <span className="absolute top-1.5 left-2 text-[8px] font-mono text-text-muted group-hover:text-accent-primary/70 transition-colors">
                       {i + 1}
                     </span>
 
                     {/* Subtle inner corner accents */}
-                    <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-accent-teal/0 group-hover:border-accent-teal/30 transition-colors" />
-                    <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-accent-teal/0 group-hover:border-accent-teal/30 transition-colors" />
+                    <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-accent-primary/0 group-hover:border-accent-primary/30 transition-colors" />
+                    <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-accent-primary/0 group-hover:border-accent-primary/30 transition-colors" />
 
-                    {itemIcons[item.name] && React.createElement(itemIcons[item.name], { size: 28, className: "text-accent-teal/60 mb-1" })}
-                    <span className="text-[8px] text-text-muted uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-teal/80 transition-colors">
+                    {itemImages[item.name] && (
+                      <Image src={itemImages[item.name]} alt={item.name} width={56} height={40} className="rounded-sm mb-1.5 opacity-80 group-hover:opacity-100 transition-opacity" />
+                    )}
+                    <span className="text-[8px] text-text-muted uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-primary/80 transition-colors">
                       {item.category}
                     </span>
-                    <span className="text-sm font-mono text-text-primary font-semibold leading-tight group-hover:text-glow-teal transition-all">
+                    <span className="text-sm font-mono text-text-primary font-semibold leading-tight group-hover:text-glow-primary transition-all">
                       {item.name}
                     </span>
 
@@ -92,8 +86,8 @@ export default function Inventory() {
                           animate-[draft-fade-in_0.15s_ease-out]"
                       >
                         {/* Tooltip top accent line */}
-                        <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-accent-teal/40 to-transparent" />
-                        <span className="text-accent-teal font-mono font-semibold block mb-1 text-[11px]">
+                        <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-accent-primary/40 to-transparent" />
+                        <span className="text-accent-primary font-mono font-semibold block mb-1 text-[11px]">
                           {item.name}
                         </span>
                         <span className="text-text-muted text-[9px] uppercase tracking-wider block mb-2">
@@ -117,7 +111,7 @@ export default function Inventory() {
                 Backpack
               </span>
               <div className="h-px flex-1 bg-gradient-to-r from-border-subtle/40 to-transparent" />
-              <span className="text-[9px] font-mono text-text-muted/60">
+              <span className="text-[9px] font-mono text-text-muted">
                 {backpackItems.length} / 3
               </span>
             </div>
@@ -135,10 +129,10 @@ export default function Inventory() {
                     {/* Dimmed diagonal lines — signals "inactive" slot */}
                     <div className="absolute inset-0 opacity-[0.12] bg-[repeating-linear-gradient(135deg,transparent,transparent_4px,rgba(255,255,255,0.1)_4px,rgba(255,255,255,0.1)_5px)] pointer-events-none rounded-sm" />
 
-                    <span className="text-[7px] text-text-muted uppercase tracking-[2px] mb-1 font-mono group-hover:text-text-muted transition-colors">
+                    <span className="text-[7px] text-text-muted uppercase tracking-[2px] mb-1 font-mono group-hover:text-accent-primary/70 transition-colors">
                       {item.category}
                     </span>
-                    <span className="text-xs font-mono text-text-primary font-semibold leading-tight group-hover:text-text-primary transition-colors">
+                    <span className="text-xs font-mono text-text-primary font-semibold leading-tight group-hover:text-glow-primary transition-all">
                       {item.name}
                     </span>
 
@@ -152,7 +146,7 @@ export default function Inventory() {
                           whitespace-normal
                           animate-[draft-fade-in_0.15s_ease-out]"
                       >
-                        <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-accent-teal/30 to-transparent" />
+                        <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent" />
                         <span className="text-text-primary font-mono font-medium block mb-1 text-[11px]">
                           {item.name}
                         </span>
@@ -167,7 +161,7 @@ export default function Inventory() {
           </div>
 
           {/* ---- TP Scroll + Neutral Item ---- */}
-          <div className="flex gap-5">
+          <div className="flex gap-5 items-start border border-border-subtle/30 rounded-sm p-4 max-w-xs bg-gradient-to-b from-bg-hud/30 to-transparent">
             {tpItem && (
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -177,18 +171,18 @@ export default function Inventory() {
                 </div>
                 <div
                   className="inv-slot relative w-28 aspect-square rounded-sm p-3 flex flex-col items-center justify-center text-center cursor-default group
-                    border-accent-teal/20 hover:border-accent-teal/50"
+                    border-accent-primary/20 hover:border-accent-primary/50"
                   onMouseEnter={() => setHoveredItem(tpItem.name)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
-                  {/* Teal inner glow on hover */}
-                  <div className="absolute inset-0 rounded-sm bg-accent-teal/0 group-hover:bg-accent-teal/[0.03] transition-colors pointer-events-none" />
+                  {/* Gold inner glow on hover */}
+                  <div className="absolute inset-0 rounded-sm bg-accent-primary/0 group-hover:bg-accent-primary/[0.03] transition-colors pointer-events-none" />
 
-                  <BootsOfTravelIcon size={28} className="text-accent-teal mb-1" />
-                  <span className="text-[8px] text-text-muted uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-teal/80 transition-colors">
+                  <Image src="/dota/item-tp.png" alt="TP Scroll" width={44} height={32} className="rounded-sm mb-1" />
+                  <span className="text-[8px] text-text-muted uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-primary/80 transition-colors">
                     {tpItem.category}
                   </span>
-                  <span className="text-sm font-mono text-accent-teal leading-tight group-hover:text-glow-teal transition-all">
+                  <span className="text-sm font-mono text-accent-primary leading-tight group-hover:text-glow-primary transition-all">
                     {tpItem.name}
                   </span>
 
@@ -201,8 +195,8 @@ export default function Inventory() {
                         whitespace-normal
                         animate-[draft-fade-in_0.15s_ease-out]"
                     >
-                      <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-accent-teal/40 to-transparent" />
-                      <span className="text-accent-teal font-mono font-semibold block mb-1 text-[11px]">
+                      <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-accent-primary/40 to-transparent" />
+                      <span className="text-accent-primary font-mono font-semibold block mb-1 text-[11px]">
                         {tpItem.name}
                       </span>
                       {tpItem.description}
@@ -223,8 +217,8 @@ export default function Inventory() {
                 <div
                   className="inv-slot relative w-28 aspect-square rounded-sm p-3 flex flex-col items-center justify-center text-center cursor-default group
                     border-accent-gold/20 hover:border-accent-gold/50
-                    hover:shadow-[0_0_20px_rgba(178,138,51,0.08),inset_0_0_20px_rgba(178,138,51,0.03)]
-                    hover:bg-[linear-gradient(135deg,rgba(14,15,19,0.9)_0%,rgba(178,138,51,0.05)_100%)]"
+                    hover:shadow-[0_0_20px_rgba(240,173,78,0.08),inset_0_0_20px_rgba(240,173,78,0.03)]
+                    hover:bg-[linear-gradient(135deg,rgba(16,14,12,0.9)_0%,rgba(240,173,78,0.05)_100%)]"
                   onMouseEnter={() => setHoveredItem(neutralItem.name)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
@@ -232,7 +226,7 @@ export default function Inventory() {
                   <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-accent-gold/20 group-hover:border-accent-gold/50 transition-colors rounded-tl-sm" />
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-accent-gold/20 group-hover:border-accent-gold/50 transition-colors rounded-br-sm" />
 
-                  <TomeOfKnowledgeIcon size={28} className="text-accent-gold mb-1" />
+                  <Image src="/dota/item-tome.png" alt="Tome of Knowledge" width={44} height={32} className="rounded-sm mb-1" />
                   <span className="text-[8px] text-accent-gold/60 uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-gold/80 transition-colors">
                     {neutralItem.category}
                   </span>
@@ -264,9 +258,6 @@ export default function Inventory() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0">
-        <div className="section-divider" />
-      </div>
     </section>
   );
 }

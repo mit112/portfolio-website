@@ -18,7 +18,7 @@ export default function Home() {
       <AmbientParticles />
       {/* Viewport frame border */}
       <div className="viewport-frame" />
-      <main className="relative pt-14">
+      <main className="relative pt-14 pb-16 md:pb-20">
         <HeroPortrait />
         <Attributes />
         <Abilities />

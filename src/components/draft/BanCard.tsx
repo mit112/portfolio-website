@@ -53,7 +53,7 @@ export default function BanCard({ label, delay, onComplete }: BanCardProps) {
         banned && "opacity-70 scale-95"
       )}
       style={{
-        background: "linear-gradient(to bottom, #1E2029, #15171D)",
+        background: "linear-gradient(to bottom, #221E1A, #1A1715)",
       }}
     >
       {/* Red accent line at top */}

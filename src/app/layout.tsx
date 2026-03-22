@@ -19,13 +19,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mit Sheth — iOS Engineer",
+  title: "Mit Sheth — Software Engineer",
   description:
-    "iOS engineer with 4 shipped apps, IEEE publication, and a passion for crafting polished mobile experiences.",
+    "Software engineer specializing in iOS. 4 shipped apps, 1 live on the App Store, IEEE publication, MS from Northeastern.",
+  other: { "theme-color": "#131313" },
   openGraph: {
-    title: "Mit Sheth — iOS Engineer",
+    title: "Mit Sheth — Software Engineer",
     description:
-      "4 shipped iOS apps. 1 live on the App Store. Swift artisan seeking the next challenge.",
+      "Software engineer specializing in iOS & Swift. 4 shipped apps, clean architecture, and an obsession for polish.",
     type: "website",
   },
 };
@@ -43,7 +44,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-bg-primary text-text-primary font-body">
         <a
           href="#hero"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-accent-teal focus:text-bg-primary focus:px-4 focus:py-2 focus:rounded"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-accent-primary focus:text-bg-primary focus:px-4 focus:py-2 focus:rounded"
         >
           Skip to content
         </a>

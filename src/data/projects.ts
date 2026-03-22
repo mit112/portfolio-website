@@ -14,6 +14,7 @@ export interface Project {
   links: {
     appStore?: string;
     github?: string;
+    linkedin?: string;
   };
 }
 
@@ -37,7 +38,7 @@ export const projects: Project[] = [
       "Protocol-oriented architecture for testability",
     ],
     links: {
-      github: "https://github.com/mit112",
+      github: "https://github.com/mit112/StreakSync",
     },
   },
   {
@@ -59,8 +60,9 @@ export const projects: Project[] = [
       "Offline support with Core Data persistence",
     ],
     links: {
-      appStore: "https://apps.apple.com",
-      github: "https://github.com/mit112",
+      appStore: "https://apps.apple.com/us/app/flickswiper/id6758966666",
+      github: "https://github.com/mit112/FlickSwiper",
+      linkedin: "https://www.linkedin.com/posts/mit-sheth_ios-swiftui-appstore-activity-7429822257792786432-tUoT",
     },
   },
   {
@@ -82,7 +84,7 @@ export const projects: Project[] = [
       "Zero-knowledge architecture — server never sees plaintext",
     ],
     links: {
-      github: "https://github.com/mit112",
+      github: "https://github.com/mit112/Fond",
     },
   },
   {
@@ -104,7 +106,8 @@ export const projects: Project[] = [
       "Rich push notification integration",
     ],
     links: {
-      github: "https://github.com/mit112",
+      github: "https://github.com/mit112/BirthdayQuest",
+      linkedin: "https://www.linkedin.com/posts/mit-sheth_swiftui-ios-firebase-activity-7440487277350457344-zZmW",
     },
   },
 ];

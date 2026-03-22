@@ -4,18 +4,13 @@ import { useState } from "react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import { AbilityFrame } from "@/components/icons/DotaIcons";
+import { projects } from "@/data/projects";
 
-const ABILITIES = [
-  { key: "Q", label: "StreakSync" },
-  { key: "W", label: "FlickSwiper" },
-  { key: "E", label: "Fond" },
-  { key: "R", label: "BirthdayQuest" },
-] as const;
-
-function scrollToAbilities() {
-  const el = document.getElementById("abilities");
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}
+const ABILITIES = projects.map((p) => ({
+  key: p.key,
+  label: p.name,
+  link: p.links.appStore ?? p.links.github ?? "#",
+}));
 
 export default function AbilityBar() {
   const { activeSection } = useActiveSection();
@@ -25,8 +20,8 @@ export default function AbilityBar() {
   return (
     <div
       className={cn(
-        "fixed bottom-4 left-1/2 -translate-x-1/2 z-40 hidden md:flex items-center gap-3 bg-bg-hud/95 backdrop-blur-lg border border-[rgba(178,138,51,0.2)] rounded-lg px-4 py-2 transition-shadow duration-500",
-        isAbilitiesActive && "shadow-[0_0_20px_rgba(39,174,158,0.25)] border-accent-teal/40"
+        "fixed bottom-4 left-1/2 -translate-x-1/2 z-40 hidden md:flex items-center gap-3 bg-bg-hud/95 backdrop-blur-lg border border-[rgba(240,173,78,0.2)] rounded-lg px-4 py-2 transition-shadow duration-500",
+        isAbilitiesActive && "shadow-[0_0_20px_rgba(240,173,78,0.25)] border-accent-primary/40"
       )}
       role="navigation"
       aria-label="Ability bar"
@@ -34,19 +29,21 @@ export default function AbilityBar() {
       {/* Gold accent line */}
       <div className="absolute top-0 left-2 right-2 h-px bg-gradient-to-r from-transparent via-accent-gold/30 to-transparent" />
 
-      {ABILITIES.map(({ key, label }) => (
+      {ABILITIES.map(({ key, label, link }) => (
         <div key={key} className="relative">
-          <button
-            onClick={scrollToAbilities}
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseEnter={() => setHoveredKey(key)}
             onMouseLeave={() => setHoveredKey(null)}
-            className="transition-all duration-200"
+            className="block transition-all duration-200"
             aria-label={`${label} — ability ${key}`}
           >
             <AbilityFrame size={40} active={hoveredKey === key || isAbilitiesActive}>
-              <span className="font-mono text-sm font-bold text-accent-teal">{key}</span>
+              <span className="font-mono text-sm font-bold text-accent-primary">{key}</span>
             </AbilityFrame>
-          </button>
+          </a>
 
           {/* Tooltip */}
           <span

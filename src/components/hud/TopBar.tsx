@@ -34,14 +34,18 @@ export default function TopBar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 h-14 bg-bg-hud/95 backdrop-blur-lg border-b border-[rgba(178,138,51,0.2)] flex items-center justify-between px-4 md:px-6"
+      className="fixed top-0 left-0 right-0 z-50 h-14 bg-bg-hud/95 backdrop-blur-lg border-b border-[rgba(240,173,78,0.2)] flex items-center justify-between px-4 md:px-6"
       role="navigation"
       aria-label="Top navigation"
     >
       {/* Left: Logo */}
-      <span className="font-display text-sm tracking-[4px] text-accent-teal text-glow-teal uppercase select-none">
+      <button
+        onClick={() => scrollToSection("hero")}
+        className="font-display text-sm tracking-[4px] text-accent-primary text-glow-primary uppercase select-none hover:text-accent-gold transition-colors duration-200"
+        aria-label="Scroll to top"
+      >
         MIT
-      </span>
+      </button>
 
       {/* Center: Game clock */}
       <span className="font-mono text-sm text-text-secondary tabular-nums">
@@ -64,7 +68,7 @@ export default function TopBar() {
               <UltimateDiamond state="cooldown" size={8} />
             )}
             {/* Hover label on md+ */}
-            <span className="hidden md:block absolute top-full mt-2 px-1.5 py-0.5 bg-bg-elevated text-[9px] font-mono text-text-muted rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+            <span className="hidden md:block absolute top-full mt-2 px-1.5 py-0.5 bg-bg-elevated text-[9px] font-mono text-text-muted rounded opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
               {SECTION_LABELS[id]}
             </span>
           </button>

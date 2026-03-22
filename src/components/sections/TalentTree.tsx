@@ -21,7 +21,7 @@ const levels: TalentLevel[] = [
     level: 25,
     center: {
       title: "Seeking Next Role",
-      subtitle: "iOS Engineer",
+      subtitle: "Software Engineer",
       detail: "Open to relocation & remote",
     },
   },
@@ -84,17 +84,17 @@ function NodeCard({
       <div className="p-5 relative">
         {/* Subtle corner glow for center card */}
         {isCenter && (
-          <div className="absolute inset-0 rounded bg-[radial-gradient(ellipse_at_top,rgba(178,138,51,0.06)_0%,transparent_60%)] pointer-events-none" />
+          <div className="absolute inset-0 rounded bg-[radial-gradient(ellipse_at_top,rgba(240,173,78,0.06)_0%,transparent_60%)] pointer-events-none" />
         )}
 
         <div className="relative">
           <span
             className="text-[10px] font-mono tracking-widest uppercase"
             style={{
-              color: isCenter ? "#B28A33" : "#27AE9E",
+              color: isCenter ? "#FFCD8D" : "#F0AD4E",
               textShadow: isCenter
-                ? "0 0 8px rgba(178,138,51,0.4)"
-                : "0 0 6px rgba(39,174,158,0.2)",
+                ? "0 0 8px rgba(255,205,141,0.4)"
+                : "0 0 6px rgba(240,173,78,0.3)",
             }}
           >
             LVL {level}
@@ -119,7 +119,7 @@ export default function TalentTree() {
     <section className="section-elevated relative py-20 md:py-28 overflow-hidden">
       {/* Atmospheric glows */}
       <div className="glow-spot glow-spot--gold absolute left-1/2 -translate-x-1/2 -top-20 opacity-[0.15]" />
-      <div className="glow-spot glow-spot--teal absolute -left-40 bottom-0 opacity-[0.08]" />
+      <div className="glow-spot glow-spot--primary absolute -left-40 bottom-0 opacity-[0.08]" />
 
       <div className="max-w-4xl mx-auto px-6 relative">
         <SectionHeading
@@ -132,8 +132,8 @@ export default function TalentTree() {
         <div className="hidden md:block relative">
           {/* Center glowing spine */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px">
-            <div className="w-full h-full bg-gradient-to-b from-accent-gold/70 via-accent-teal/50 to-border-subtle" />
-            <div className="absolute inset-0 w-full bg-gradient-to-b from-accent-gold/50 via-accent-teal/30 to-transparent blur-sm" />
+            <div className="w-full h-full bg-gradient-to-b from-accent-gold/80 via-accent-gold/30 to-border-subtle" />
+            <div className="absolute inset-0 w-full bg-gradient-to-b from-accent-gold/50 via-accent-gold/15 to-transparent blur-sm" />
           </div>
 
           <div className="space-y-10">
@@ -149,7 +149,7 @@ export default function TalentTree() {
                         className="w-5 h-5 rounded-full bg-accent-gold"
                         style={{
                           boxShadow:
-                            "0 0 16px rgba(178,138,51,0.8), 0 0 40px rgba(178,138,51,0.35)",
+                            "0 0 16px rgba(240,173,78,0.8), 0 0 40px rgba(240,173,78,0.35)",
                         }}
                       />
                     </div>
@@ -185,20 +185,20 @@ export default function TalentTree() {
                     <div
                       className="absolute left-0 right-1/2 top-1/2 h-px"
                       style={{
-                        background: "linear-gradient(90deg, rgba(39,174,158,0.3), rgba(39,174,158,0.6))",
+                        background: "linear-gradient(90deg, rgba(240,173,78,0.3), rgba(240,173,78,0.6))",
                       }}
                     />
                     <div
                       className="absolute left-1/2 right-0 top-1/2 h-px"
                       style={{
-                        background: "linear-gradient(90deg, rgba(39,174,158,0.6), rgba(39,174,158,0.3))",
+                        background: "linear-gradient(90deg, rgba(240,173,78,0.6), rgba(240,173,78,0.3))",
                       }}
                     />
                     {/* Dot */}
                     <div
-                      className="w-3.5 h-3.5 rounded-full bg-accent-teal border border-accent-teal/70 relative z-10"
+                      className="w-3.5 h-3.5 rounded-full bg-accent-primary border border-accent-primary/70 relative z-10"
                       style={{
-                        boxShadow: "0 0 10px rgba(39,174,158,0.6), 0 0 25px rgba(39,174,158,0.25)",
+                        boxShadow: "0 0 10px rgba(240,173,78,0.6), 0 0 25px rgba(240,173,78,0.25)",
                       }}
                     />
                   </div>
@@ -221,8 +221,8 @@ export default function TalentTree() {
         <div className="md:hidden relative pl-8">
           {/* Left glowing spine */}
           <div className="absolute left-3 top-0 bottom-0 w-px">
-            <div className="w-full h-full bg-gradient-to-b from-accent-gold/70 via-accent-teal/50 to-border-subtle" />
-            <div className="absolute inset-0 w-full bg-gradient-to-b from-accent-gold/50 via-accent-teal/30 to-transparent blur-sm" />
+            <div className="w-full h-full bg-gradient-to-b from-accent-gold/80 via-accent-gold/30 to-border-subtle" />
+            <div className="absolute inset-0 w-full bg-gradient-to-b from-accent-gold/50 via-accent-gold/15 to-transparent blur-sm" />
           </div>
 
           <div className="space-y-6">
@@ -239,14 +239,14 @@ export default function TalentTree() {
                     className="absolute -left-5 top-4 w-3.5 h-3.5 rounded-full border"
                     style={{
                       backgroundColor: item.isCenter
-                        ? "#B28A33"
-                        : "rgba(39,174,158,0.8)",
+                        ? "#FFCD8D"
+                        : "rgba(240,173,78,0.8)",
                       borderColor: item.isCenter
-                        ? "#B28A33"
-                        : "rgba(39,174,158,0.7)",
+                        ? "#FFCD8D"
+                        : "rgba(240,173,78,0.7)",
                       boxShadow: item.isCenter
-                        ? "0 0 14px rgba(178,138,51,0.7), 0 0 30px rgba(178,138,51,0.25)"
-                        : "0 0 10px rgba(39,174,158,0.6)",
+                        ? "0 0 14px rgba(255,205,141,0.7), 0 0 30px rgba(255,205,141,0.25)"
+                        : "0 0 10px rgba(240,173,78,0.6)",
                     }}
                   />
 
@@ -262,10 +262,6 @@ export default function TalentTree() {
         </div>
       </div>
 
-      {/* Bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <div className="section-divider" />
-      </div>
     </section>
   );
 }

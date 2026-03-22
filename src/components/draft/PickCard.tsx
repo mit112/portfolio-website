@@ -72,14 +72,14 @@ export default function PickCard({ delay, onComplete }: PickCardProps) {
   return (
     <div
       className={cn(
-        "w-72 md:w-80 rounded-lg border-2 border-accent-teal p-6 text-center relative",
-        stage === "done" && "shadow-[0_0_30px_rgba(39,174,158,0.3)]"
+        "w-72 md:w-80 rounded-lg border-2 border-accent-primary p-6 text-center relative",
+        stage === "done" && "shadow-[0_0_30px_rgba(240,173,78,0.3)]"
       )}
       style={{
-        background: "linear-gradient(to bottom, #1a2a2a, #1E2029, #15171D)",
+        background: "linear-gradient(to bottom, #2A2518, #1C1B1B, #141210)",
         boxShadow:
           stage !== "done"
-            ? "0 0 30px rgba(39,174,158,0.3)"
+            ? "0 0 30px rgba(240,173,78,0.3)"
             : undefined,
         ...(reducedMotion ? {} : cardStyle),
       }}
@@ -94,14 +94,14 @@ export default function PickCard({ delay, onComplete }: PickCardProps) {
       <div className="w-40 h-48 mx-auto mb-4 relative">
         {/* Outer gold border */}
         <div className="absolute inset-0 rounded border-2 border-accent-gold/40" />
-        {/* Inner teal glow border */}
+        {/* Inner gold glow border */}
         <div
-          className="absolute inset-[3px] rounded border border-accent-teal/30"
-          style={{ boxShadow: "inset 0 0 20px rgba(39,174,158,0.15)" }}
+          className="absolute inset-[3px] rounded border border-accent-primary/30"
+          style={{ boxShadow: "inset 0 0 20px rgba(240,173,78,0.15)" }}
         />
         {/* Portrait background */}
         <div className="absolute inset-[4px] rounded bg-gradient-to-br from-bg-primary to-bg-elevated flex items-center justify-center">
-          <span className="font-display text-2xl tracking-widest text-accent-teal select-none">
+          <span className="font-display text-2xl tracking-widest text-accent-primary select-none">
             MIT
           </span>
         </div>
@@ -113,13 +113,13 @@ export default function PickCard({ delay, onComplete }: PickCardProps) {
       </div>
 
       {/* Name */}
-      <h3 className="font-display text-3xl font-bold tracking-[4px] text-glow-teal">
+      <h3 className="font-display text-3xl font-bold tracking-[4px] text-glow-primary">
         MIT SHETH
       </h3>
 
       {/* Title */}
-      <p className="text-lg text-accent-teal tracking-[3px] uppercase mt-1">
-        iOS Engineer
+      <p className="text-lg text-accent-primary tracking-[3px] uppercase mt-1">
+        Software Engineer
       </p>
 
       {/* Role tags */}

@@ -25,7 +25,7 @@ export default function Minimap() {
 
   return (
     <div
-      className="fixed bottom-4 left-4 z-40 hidden lg:block w-32 h-44 bg-bg-hud/95 backdrop-blur-lg border border-[rgba(178,138,51,0.15)] rounded"
+      className="fixed bottom-4 left-4 z-40 hidden lg:block w-32 h-44 bg-bg-hud/95 backdrop-blur-lg border border-[rgba(240,173,78,0.15)] rounded"
       role="navigation"
       aria-label="Minimap navigation"
     >
@@ -53,14 +53,14 @@ export default function Minimap() {
                 className={cn(
                   "block rounded-full transition-all duration-300 shrink-0",
                   isActive
-                    ? "w-3 h-3 bg-accent-teal shadow-[0_0_12px_rgba(39,174,158,0.8)]"
+                    ? "w-3 h-3 bg-accent-primary shadow-[0_0_12px_rgba(240,173,78,0.8)]"
                     : "w-2 h-2 bg-border-subtle group-hover:bg-text-muted"
                 )}
               />
               <span
                 className={cn(
                   "text-[9px] font-mono transition-colors duration-200",
-                  isActive ? "text-accent-teal" : "text-text-secondary group-hover:text-text-primary"
+                  isActive ? "text-accent-primary" : "text-text-secondary group-hover:text-text-primary"
                 )}
               >
                 {SECTION_LABELS[id]}

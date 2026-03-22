@@ -10,7 +10,7 @@ interface CardProps {
 const rarityColors = {
   mythical: { border: "#8847FF", glow: "rgba(136, 71, 255, 0.2)" },
   legendary: { border: "#D32CE6", glow: "rgba(211, 44, 230, 0.2)" },
-  immortal: { border: "#B28A33", glow: "rgba(178, 138, 51, 0.2)" },
+  immortal: { border: "#F0AD4E", glow: "rgba(178, 138, 51, 0.2)" },
 };
 
 export default function Card({
@@ -24,13 +24,13 @@ export default function Card({
   return (
     <div
       className={cn(
-        "relative rounded",
+        "relative rounded-sm",
         "dota-bevel",
         !rarity && "gold-accent-top",
         hoverable && [
           "transition-all duration-300",
           "hover:border-border-active",
-          "hover:shadow-[0_0_30px_rgba(39,174,158,0.1),inset_0_0_30px_rgba(39,174,158,0.03)]",
+          "hover:shadow-[0_0_30px_rgba(240,173,78,0.1),inset_0_0_30px_rgba(240,173,78,0.03)]",
           "hover:translate-y-[-2px]",
         ],
         className
@@ -49,8 +49,8 @@ export default function Card({
       <div className="absolute inset-0 rounded bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
 
       {/* Corner marks — more visible */}
-      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-accent-teal/60" />
-      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-accent-teal/60" />
+      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-accent-primary/60" />
+      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-accent-primary/60" />
 
       {/* Content */}
       <div className="relative">{children}</div>

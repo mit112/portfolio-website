@@ -14,8 +14,8 @@ export default function AegisButton() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className={cn(
-          "relative block w-14 h-14 rounded-full bg-gradient-to-br from-[#C9982D] to-[#E5B84D] flex items-center justify-center shadow-[0_0_20px_rgba(178,138,51,0.3)] transition-all duration-300",
-          hovered && "shadow-[0_0_30px_rgba(178,138,51,0.6)] scale-110"
+          "relative flex w-14 h-14 rounded-full bg-gradient-to-br from-[#F0AD4E] to-[#FFCD8D] flex items-center justify-center shadow-[0_0_20px_rgba(240,173,78,0.3)] transition-all duration-300",
+          hovered && "shadow-[0_0_30px_rgba(240,173,78,0.6)] scale-110"
         )}
         aria-label="Download Resume (Aegis)"
       >

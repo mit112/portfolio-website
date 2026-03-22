@@ -282,13 +282,13 @@ export function GoldCoin({ size = 16, className }: IconProps) {
       aria-hidden="true"
     >
       {/* Outer coin */}
-      <circle cx="8" cy="8" r="7" stroke="#B28A33" strokeWidth="1.5" fill="#B28A33" fillOpacity="0.15" />
+      <circle cx="8" cy="8" r="7" stroke="#F0AD4E" strokeWidth="1.5" fill="#F0AD4E" fillOpacity="0.15" />
       {/* Inner ring for embossed look */}
-      <circle cx="8" cy="8" r="4.5" stroke="#B28A33" strokeWidth="0.8" opacity="0.6" />
+      <circle cx="8" cy="8" r="4.5" stroke="#F0AD4E" strokeWidth="0.8" opacity="0.6" />
       {/* Vertical line through center -- coin denomination mark */}
-      <line x1="8" y1="4.5" x2="8" y2="11.5" stroke="#B28A33" strokeWidth="1" strokeLinecap="round" opacity="0.7" />
+      <line x1="8" y1="4.5" x2="8" y2="11.5" stroke="#F0AD4E" strokeWidth="1" strokeLinecap="round" opacity="0.7" />
       {/* Horizontal dash */}
-      <line x1="5.5" y1="8" x2="10.5" y2="8" stroke="#B28A33" strokeWidth="0.8" strokeLinecap="round" opacity="0.4" />
+      <line x1="5.5" y1="8" x2="10.5" y2="8" stroke="#F0AD4E" strokeWidth="0.8" strokeLinecap="round" opacity="0.4" />
     </svg>
   );
 }
@@ -390,8 +390,8 @@ export function AncientSilhouette({ className }: { className?: string }) {
 // ---------------------------------------------------------------------------
 
 export function AbilityFrame({ size = 48, children, active, className }: AbilityFrameProps) {
-  const borderColor = active ? "rgba(39,174,158,0.8)" : "rgba(42,45,53,0.9)";
-  const glowColor = active ? "rgba(39,174,158,0.25)" : "transparent";
+  const borderColor = active ? "rgba(240,173,78,0.8)" : "rgba(42,45,53,0.9)";
+  const glowColor = active ? "rgba(240,173,78,0.25)" : "transparent";
 
   return (
     <div
@@ -415,8 +415,8 @@ export function AbilityFrame({ size = 48, children, active, className }: Ability
         <defs>
           {/* Inner area gradient -- lighter top fading to darker bottom */}
           <linearGradient id="abilityBg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(30,33,42,0.9)" />
-            <stop offset="100%" stopColor="rgba(14,15,19,0.95)" />
+            <stop offset="0%" stopColor="rgba(34,28,22,0.9)" />
+            <stop offset="100%" stopColor="rgba(18,15,12,0.95)" />
           </linearGradient>
 
           {/* Active glow filter */}

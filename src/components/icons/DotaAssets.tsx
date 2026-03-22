@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 //
 // All components accept className for sizing/positioning.
 // All decorative elements use aria-hidden="true".
-// Color palette: gold #B28A33, teal #27AE9E, Dire red #BF2E1A, Radiant green #598307
+// Color palette: primary gold #F0AD4E, light gold #FFCD8D, Dire red #A91B0D, Radiant green #598307
 // ---------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------
@@ -32,7 +32,7 @@ export function DotaMinimap({ className }: { className?: string }) {
         width="192"
         height="192"
         rx="3"
-        stroke="rgba(178,138,51,0.25)"
+        stroke="rgba(240,173,78,0.25)"
         strokeWidth="1.5"
         fill="rgba(10,12,8,0.6)"
       />
@@ -164,12 +164,12 @@ export function DotaMinimap({ className }: { className?: string }) {
       {/* === ROSHAN PIT — diamond near the river, top side === */}
       <polygon
         points="108,72 114,78 108,84 102,78"
-        fill="rgba(178,138,51,0.3)"
-        stroke="rgba(178,138,51,0.5)"
+        fill="rgba(240,173,78,0.3)"
+        stroke="rgba(240,173,78,0.5)"
         strokeWidth="1"
       />
       {/* Roshan dot */}
-      <circle cx="108" cy="78" r="2" fill="rgba(178,138,51,0.6)" />
+      <circle cx="108" cy="78" r="2" fill="rgba(240,173,78,0.6)" />
 
       {/* === RUNE SPOTS — on the river === */}
       {/* Top rune */}
@@ -188,8 +188,8 @@ export function DotaMinimap({ className }: { className?: string }) {
       />
 
       {/* === SECRET SHOPS — small squares off in corners === */}
-      <rect x="15" y="60" width="5" height="5" rx="1" fill="rgba(178,138,51,0.2)" stroke="rgba(178,138,51,0.3)" strokeWidth="0.5" />
-      <rect x="140" y="148" width="5" height="5" rx="1" fill="rgba(178,138,51,0.2)" stroke="rgba(178,138,51,0.3)" strokeWidth="0.5" />
+      <rect x="15" y="60" width="5" height="5" rx="1" fill="rgba(240,173,78,0.2)" stroke="rgba(240,173,78,0.3)" strokeWidth="0.5" />
+      <rect x="140" y="148" width="5" height="5" rx="1" fill="rgba(240,173,78,0.2)" stroke="rgba(240,173,78,0.3)" strokeWidth="0.5" />
 
       {/* === SUBTLE TREE TEXTURE — tiny dots to suggest terrain === */}
       {[
@@ -217,108 +217,101 @@ export function DotaMinimap({ className }: { className?: string }) {
 export function RoshanSilhouette({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 100 120"
+      viewBox="0 0 120 130"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      {/* Main body silhouette — built from a single compound path */}
+      {/* Roshan — dragon-beast silhouette (Dota 2 accurate)
+          Large head with two curved horns, massive jaw with lower fangs,
+          hunched reptilian body, thick clawed arms, rocky armor plates,
+          thick legs, and a tail. NOT a humanoid — a beast/dragon creature. */}
+
+      {/* Left horn — thick, curving backward and outward */}
+      <path
+        d="M 44 30 C 38 24, 26 14, 18 8 C 14 5, 10 6, 12 12 C 14 18, 24 24, 34 28 Z"
+        fill="currentColor"
+      />
+
+      {/* Right horn — thick, curving backward and outward */}
+      <path
+        d="M 76 30 C 82 24, 94 14, 102 8 C 106 5, 110 6, 108 12 C 106 18, 96 24, 86 28 Z"
+        fill="currentColor"
+      />
+
+      {/* Main body — head, torso, arms, legs as one compound shape */}
       <path
         d={`
-          M 50 8
-          C 46 4, 38 0, 34 6
-          C 30 12, 34 18, 38 22
-          L 36 26
+          M 60 24
+          C 66 22, 74 24, 78 30
+          C 82 36, 80 40, 78 42
+          L 82 44
+          C 86 42, 92 44, 96 42
+          L 94 38
+          C 98 40, 100 44, 96 46
+          L 92 48
+          C 96 52, 98 58, 96 64
+          C 98 68, 100 76, 96 82
+          L 98 86
+          C 100 90, 98 96, 94 96
+          C 90 96, 88 92, 88 88
+          L 86 80
+          C 84 72, 82 64, 80 56
+          C 82 66, 84 78, 82 86
 
-          C 28 24, 16 22, 10 30
-          C 4 38, 8 48, 12 52
-          L 8 58
-          C 4 60, 2 66, 6 72
-          L 10 74
-          C 8 80, 10 88, 14 92
-          L 18 96
-          C 20 102, 24 108, 30 110
-          L 34 112
-          L 34 116
-          L 42 118
-          L 42 112
-          L 50 110
+          C 84 94, 86 104, 84 112
+          C 82 118, 76 120, 72 118
+          C 68 114, 68 106, 66 96
 
-          L 58 112
-          L 58 118
-          L 66 116
-          L 66 112
-          L 70 110
-          C 76 108, 80 102, 82 96
-          L 86 92
-          C 90 88, 92 80, 90 74
-          L 94 72
-          C 98 66, 96 60, 92 58
-          L 88 52
-          C 92 48, 96 38, 90 30
-          C 84 22, 72 24, 64 26
+          C 64 92, 56 92, 54 96
 
-          L 62 22
-          C 66 18, 70 12, 66 6
-          C 62 0, 54 4, 50 8
+          C 52 106, 52 114, 48 118
+          C 44 120, 38 118, 36 112
+          C 34 104, 36 94, 38 86
+
+          C 36 78, 38 66, 40 56
+          C 38 64, 36 72, 34 80
+          L 32 88
+          C 32 92, 30 96, 26 96
+          C 22 96, 20 90, 22 86
+          L 24 82
+          C 20 76, 22 68, 24 64
+          C 22 58, 20 52, 28 48
+          L 24 46
+          C 20 44, 22 40, 26 38
+          L 24 42
+          C 28 44, 34 42, 38 44
+          L 42 42
+          C 40 40, 38 36, 42 30
+          C 46 24, 54 22, 60 24
           Z
         `}
         fill="currentColor"
       />
 
-      {/* LEFT HORN — curved upward */}
+      {/* Lower jaw — protruding, wide, with fang bumps */}
       <path
-        d="M 34 6 C 28 -2, 16 -4, 12 4 C 8 12, 16 18, 24 20 L 34 22"
+        d="M 42 42 C 44 48, 46 52, 50 54 C 52 56, 56 58, 60 56 C 64 54, 68 52, 72 50 C 76 48, 78 44, 78 42
+           C 74 46, 66 50, 60 50 C 54 50, 46 46, 42 42 Z"
         fill="currentColor"
       />
 
-      {/* RIGHT HORN — curved upward */}
+      {/* Left fang */}
+      <path d="M 46 48 L 44 54 L 48 50 Z" fill="currentColor" />
+      {/* Right fang */}
+      <path d="M 74 48 L 76 54 L 72 50 Z" fill="currentColor" />
+
+      {/* Rocky spine ridges along back */}
+      <path d="M 54 26 L 52 20 L 56 22 Z" fill="currentColor" />
+      <path d="M 60 24 L 60 18 L 64 22 Z" fill="currentColor" />
+      <path d="M 66 26 L 68 20 L 70 24 Z" fill="currentColor" />
+
+      {/* Tail — curving out to the right from the lower body */}
       <path
-        d="M 66 6 C 72 -2, 84 -4, 88 4 C 92 12, 84 18, 76 20 L 66 22"
+        d="M 82 100 C 88 102, 96 98, 102 100 C 108 102, 114 100, 116 96
+           C 118 92, 116 90, 112 92 C 108 94, 100 96, 92 96 C 86 96, 82 96, 80 94"
         fill="currentColor"
-      />
-
-      {/* Eyes — glowing dots in the head area */}
-      <circle cx="42" cy="20" r="2.5" fill="rgba(178,138,51,0.8)" />
-      <circle cx="58" cy="20" r="2.5" fill="rgba(178,138,51,0.8)" />
-      <circle cx="42" cy="20" r="1.2" fill="rgba(255,220,120,0.9)" />
-      <circle cx="58" cy="20" r="1.2" fill="rgba(255,220,120,0.9)" />
-
-      {/* Mouth / jaw line */}
-      <path
-        d="M 40 30 C 44 34, 56 34, 60 30"
-        stroke="rgba(0,0,0,0.4)"
-        strokeWidth="1.5"
-        fill="none"
-      />
-
-      {/* Chest muscle definition lines */}
-      <path
-        d="M 50 40 C 42 42, 30 48, 22 56"
-        stroke="rgba(0,0,0,0.15)"
-        strokeWidth="1"
-        fill="none"
-      />
-      <path
-        d="M 50 40 C 58 42, 70 48, 78 56"
-        stroke="rgba(0,0,0,0.15)"
-        strokeWidth="1"
-        fill="none"
-      />
-
-      {/* AEGIS at feet — small shield shape */}
-      <path
-        d="M 50 100 L 42 104 L 42 108 C 42 112, 46 115, 50 116
-           C 54 115, 58 112, 58 108 L 58 104 Z"
-        fill="rgba(178,138,51,0.5)"
-        stroke="rgba(178,138,51,0.7)"
-        strokeWidth="0.8"
-      />
-      {/* Aegis diamond */}
-      <polygon
-        points="50,104 53,108 50,112 47,108"
-        fill="rgba(178,138,51,0.7)"
       />
     </svg>
   );
@@ -461,9 +454,9 @@ export function DireAncient({ className }: { className?: string }) {
       className={className}
       aria-hidden="true"
     >
-      {/* === LAVA/FIRE BASE ACCENTS === */}
-      <ellipse cx="75" cy="290" rx="55" ry="6" fill="rgba(191,46,26,0.15)" />
-      <ellipse cx="75" cy="290" rx="35" ry="3" fill="rgba(191,46,26,0.1)" />
+      {/* === BASE GLOW === */}
+      <ellipse cx="75" cy="290" rx="55" ry="6" fill="currentColor" opacity="0.15" />
+      <ellipse cx="75" cy="290" rx="35" ry="3" fill="currentColor" opacity="0.1" />
 
       {/* === JAGGED BASE PLATFORM === */}
       <path
@@ -514,42 +507,37 @@ export function DireAncient({ className }: { className?: string }) {
       <path d="M 106 150 L 126 145 L 124 140 L 104 144 Z" fill="currentColor" opacity="0.3" />
       <path d="M 110 210 L 128 208 L 126 204 L 108 205 Z" fill="currentColor" opacity="0.25" />
 
-      {/* === EVIL FACE / SKULL detail on tower front === */}
+      {/* === SKULL detail on tower front === */}
       {/* Eye sockets */}
-      <ellipse cx="62" cy="80" rx="5" ry="6" fill="rgba(191,46,26,0.3)" />
-      <ellipse cx="88" cy="80" rx="5" ry="6" fill="rgba(191,46,26,0.3)" />
-      {/* Eye glows */}
-      <circle cx="62" cy="80" r="2.5" fill="rgba(191,46,26,0.5)" />
-      <circle cx="88" cy="80" r="2.5" fill="rgba(191,46,26,0.5)" />
-      <circle cx="62" cy="80" r="1.2" fill="rgba(220,80,40,0.6)" />
-      <circle cx="88" cy="80" r="1.2" fill="rgba(220,80,40,0.6)" />
+      <ellipse cx="62" cy="80" rx="5" ry="6" fill="currentColor" opacity="0.4" />
+      <ellipse cx="88" cy="80" rx="5" ry="6" fill="currentColor" opacity="0.4" />
 
       {/* Mouth / maw */}
       <path
         d="M 62 95 L 66 100 L 70 96 L 75 102 L 80 96 L 84 100 L 88 95"
-        stroke="rgba(191,46,26,0.35)"
+        stroke="currentColor"
         strokeWidth="1.2"
         fill="none"
         strokeLinecap="round"
+        opacity="0.35"
       />
 
       {/* === FIRE/LAVA ACCENTS at base === */}
-      {/* Flame licks */}
       <path
         d="M 52 270 C 50 260, 56 255, 54 248 C 52 255, 58 258, 56 270"
-        fill="rgba(191,46,26,0.2)"
+        fill="currentColor" opacity="0.2"
       />
       <path
         d="M 68 270 C 66 258, 72 252, 70 244 C 68 252, 74 256, 72 270"
-        fill="rgba(191,46,26,0.25)"
+        fill="currentColor" opacity="0.25"
       />
       <path
         d="M 82 270 C 80 258, 86 252, 84 244 C 82 252, 88 256, 86 270"
-        fill="rgba(191,46,26,0.25)"
+        fill="currentColor" opacity="0.25"
       />
       <path
         d="M 98 270 C 96 260, 102 255, 100 248 C 98 255, 104 258, 102 270"
-        fill="rgba(191,46,26,0.2)"
+        fill="currentColor" opacity="0.2"
       />
     </svg>
   );
@@ -605,9 +593,9 @@ export function HeroFrame({
           {/* Metallic gold gradient for the border */}
           <linearGradient id="heroFrameGold" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#D4A843" />
-            <stop offset="30%" stopColor="#B28A33" />
+            <stop offset="30%" stopColor="#F0AD4E" />
             <stop offset="60%" stopColor="#8B6914" />
-            <stop offset="100%" stopColor="#B28A33" />
+            <stop offset="100%" stopColor="#F0AD4E" />
           </linearGradient>
           {/* Inner shadow gradient */}
           <linearGradient id="heroFrameInner" x1="0" y1="0" x2="0" y2="1">
@@ -671,14 +659,14 @@ export function HeroFrame({
         <path d="M 200 94 L 195 100 L 200 106" stroke="url(#heroFrameGold)" strokeWidth="2" fill="none" />
 
         {/* Corner accents — small gold dots at each cut corner */}
-        <circle cx="16" cy="0" r="2" fill="#B28A33" opacity="0.6" />
-        <circle cx="184" cy="0" r="2" fill="#B28A33" opacity="0.6" />
-        <circle cx="200" cy="16" r="2" fill="#B28A33" opacity="0.6" />
-        <circle cx="200" cy="184" r="2" fill="#B28A33" opacity="0.6" />
-        <circle cx="184" cy="200" r="2" fill="#B28A33" opacity="0.6" />
-        <circle cx="16" cy="200" r="2" fill="#B28A33" opacity="0.6" />
-        <circle cx="0" cy="184" r="2" fill="#B28A33" opacity="0.6" />
-        <circle cx="0" cy="16" r="2" fill="#B28A33" opacity="0.6" />
+        <circle cx="16" cy="0" r="2" fill="#F0AD4E" opacity="0.6" />
+        <circle cx="184" cy="0" r="2" fill="#F0AD4E" opacity="0.6" />
+        <circle cx="200" cy="16" r="2" fill="#F0AD4E" opacity="0.6" />
+        <circle cx="200" cy="184" r="2" fill="#F0AD4E" opacity="0.6" />
+        <circle cx="184" cy="200" r="2" fill="#F0AD4E" opacity="0.6" />
+        <circle cx="16" cy="200" r="2" fill="#F0AD4E" opacity="0.6" />
+        <circle cx="0" cy="184" r="2" fill="#F0AD4E" opacity="0.6" />
+        <circle cx="0" cy="16" r="2" fill="#F0AD4E" opacity="0.6" />
 
         {/* Background fill inside the frame */}
         <path
@@ -722,7 +710,7 @@ export function BKBIcon({ size = 32, className }: { size?: number; className?: s
       aria-hidden="true"
     >
       {/* Staff / bar — vertical golden rod */}
-      <rect x="14.5" y="6" width="3" height="22" rx="1.5" fill="#B28A33" />
+      <rect x="14.5" y="6" width="3" height="22" rx="1.5" fill="#F0AD4E" />
 
       {/* Staff head — wider ornamental top */}
       <path
@@ -731,16 +719,16 @@ export function BKBIcon({ size = 32, className }: { size?: number; className?: s
       />
 
       {/* Dark orb on top */}
-      <circle cx="16" cy="6" r="4" fill="#1A1A2E" stroke="#B28A33" strokeWidth="1.2" />
+      <circle cx="16" cy="6" r="4" fill="#1E1A16" stroke="#F0AD4E" strokeWidth="1.2" />
       {/* Orb inner glow */}
-      <circle cx="16" cy="5.5" r="2" fill="rgba(178,138,51,0.3)" />
+      <circle cx="16" cy="5.5" r="2" fill="rgba(240,173,78,0.3)" />
       <circle cx="15" cy="5" r="0.8" fill="rgba(255,220,130,0.5)" />
 
       {/* Crossbar / grip near bottom */}
-      <rect x="10" y="22" width="12" height="2.5" rx="1" fill="#B28A33" />
+      <rect x="10" y="22" width="12" height="2.5" rx="1" fill="#F0AD4E" />
 
       {/* Base knob */}
-      <circle cx="16" cy="28.5" r="2" fill="#B28A33" />
+      <circle cx="16" cy="28.5" r="2" fill="#F0AD4E" />
       <circle cx="16" cy="28.5" r="1" fill="#D4A843" opacity="0.6" />
 
       {/* Gold shimmer accents along shaft */}
@@ -817,39 +805,39 @@ export function ForceStaffIcon({ size = 32, className }: { size?: number; classN
       <line x1="15.2" y1="10" x2="15.2" y2="28" stroke="#A07818" strokeWidth="0.5" opacity="0.5" />
 
       {/* Swirling energy orb at top */}
-      <circle cx="16" cy="7" r="5" fill="rgba(39,174,158,0.15)" stroke="#27AE9E" strokeWidth="1" />
-      <circle cx="16" cy="7" r="3" fill="rgba(39,174,158,0.25)" />
-      <circle cx="16" cy="7" r="1.5" fill="rgba(39,174,158,0.5)" />
+      <circle cx="16" cy="7" r="5" fill="rgba(240,173,78,0.15)" stroke="#F0AD4E" strokeWidth="1" />
+      <circle cx="16" cy="7" r="3" fill="rgba(240,173,78,0.25)" />
+      <circle cx="16" cy="7" r="1.5" fill="rgba(240,173,78,0.5)" />
 
       {/* Swirl lines around the orb */}
       <path
         d="M 12 4 C 14 2, 18 2, 20 4"
-        stroke="#27AE9E"
+        stroke="#F0AD4E"
         strokeWidth="0.8"
         fill="none"
         opacity="0.5"
       />
       <path
         d="M 11 7 C 11 4, 13 2, 16 2"
-        stroke="#27AE9E"
+        stroke="#F0AD4E"
         strokeWidth="0.6"
         fill="none"
         opacity="0.4"
       />
       <path
         d="M 20 10 C 21 7, 19 4, 16 4"
-        stroke="#27AE9E"
+        stroke="#F0AD4E"
         strokeWidth="0.6"
         fill="none"
         opacity="0.4"
       />
 
       {/* Staff tip / base cap */}
-      <circle cx="16" cy="29.5" r="1.5" fill="#8B6914" stroke="#B28A33" strokeWidth="0.5" />
+      <circle cx="16" cy="29.5" r="1.5" fill="#8B6914" stroke="#F0AD4E" strokeWidth="0.5" />
 
       {/* Push direction arrows (force push indicator) */}
-      <path d="M 8 16 L 5 14 L 5 18 Z" fill="#27AE9E" opacity="0.3" />
-      <path d="M 24 16 L 27 14 L 27 18 Z" fill="#27AE9E" opacity="0.3" />
+      <path d="M 8 16 L 5 14 L 5 18 Z" fill="#F0AD4E" opacity="0.3" />
+      <path d="M 24 16 L 27 14 L 27 18 Z" fill="#F0AD4E" opacity="0.3" />
     </svg>
   );
 }
@@ -869,14 +857,14 @@ export function BootsOfTravelIcon({ size = 32, className }: { size?: number; cla
       <path
         d="M 10 10 L 10 22 L 8 24 L 8 28 L 24 28 L 24 24 L 18 20 L 18 10 Z"
         fill="#8B6914"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="0.8"
       />
 
       {/* Boot top cuff */}
       <path
         d="M 9 10 L 10 8 L 18 8 L 19 10"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="1.2"
         fill="none"
         strokeLinecap="round"
@@ -915,7 +903,7 @@ export function BootsOfTravelIcon({ size = 32, className }: { size?: number; cla
       />
 
       {/* Teleport glow at base */}
-      <ellipse cx="16" cy="28" rx="8" ry="2" fill="#27AE9E" opacity="0.15" />
+      <ellipse cx="16" cy="28" rx="8" ry="2" fill="#F0AD4E" opacity="0.15" />
     </svg>
   );
 }
@@ -963,31 +951,31 @@ export function TomeOfKnowledgeIcon({ size = 32, className }: { size?: number; c
       <line x1="16" y1="8" x2="16" y2="28" stroke="#8B6914" strokeWidth="1.2" />
 
       {/* Text lines — left page */}
-      <line x1="7" y1="12" x2="14" y2="13" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
-      <line x1="7" y1="15" x2="14" y2="16" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
-      <line x1="7" y1="18" x2="14" y2="19" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
-      <line x1="7" y1="21" x2="12" y2="22" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
+      <line x1="7" y1="12" x2="14" y2="13" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
+      <line x1="7" y1="15" x2="14" y2="16" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
+      <line x1="7" y1="18" x2="14" y2="19" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
+      <line x1="7" y1="21" x2="12" y2="22" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
 
       {/* Text lines — right page */}
-      <line x1="18" y1="13" x2="25" y2="12" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
-      <line x1="18" y1="16" x2="25" y2="15" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
-      <line x1="18" y1="19" x2="25" y2="18" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
-      <line x1="18" y1="22" x2="23" y2="21" stroke="#B28A33" strokeWidth="0.4" opacity="0.3" />
+      <line x1="18" y1="13" x2="25" y2="12" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
+      <line x1="18" y1="16" x2="25" y2="15" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
+      <line x1="18" y1="19" x2="25" y2="18" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
+      <line x1="18" y1="22" x2="23" y2="21" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.3" />
 
       {/* Knowledge glow from pages */}
-      <ellipse cx="16" cy="17" rx="10" ry="8" fill="#27AE9E" opacity="0.06" />
+      <ellipse cx="16" cy="17" rx="10" ry="8" fill="#F0AD4E" opacity="0.06" />
 
       {/* Glowing symbol on right page — a small star/rune */}
       <polygon
         points="22,14 23,16.5 25.5,16.5 23.5,18 24.2,20.5 22,19 19.8,20.5 20.5,18 18.5,16.5 21,16.5"
-        fill="#27AE9E"
+        fill="#F0AD4E"
         opacity="0.3"
       />
 
       {/* Small glow rays coming off the top of the book */}
-      <line x1="16" y1="8" x2="16" y2="4" stroke="#27AE9E" strokeWidth="0.5" opacity="0.25" />
-      <line x1="16" y1="8" x2="12" y2="5" stroke="#27AE9E" strokeWidth="0.4" opacity="0.2" />
-      <line x1="16" y1="8" x2="20" y2="5" stroke="#27AE9E" strokeWidth="0.4" opacity="0.2" />
+      <line x1="16" y1="8" x2="16" y2="4" stroke="#F0AD4E" strokeWidth="0.5" opacity="0.25" />
+      <line x1="16" y1="8" x2="12" y2="5" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.2" />
+      <line x1="16" y1="8" x2="20" y2="5" stroke="#F0AD4E" strokeWidth="0.4" opacity="0.2" />
     </svg>
   );
 }
@@ -1014,7 +1002,7 @@ export function PhaseBootsIcon({ size = 32, className }: { size?: number; classN
       {/* Boot top band */}
       <path
         d="M 10 8 L 11 6 L 17 6 L 18 8"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="1"
         fill="none"
         strokeLinecap="round"
@@ -1027,21 +1015,21 @@ export function PhaseBootsIcon({ size = 32, className }: { size?: number; classN
       {/* Ghost/phase streaks extending behind the boot */}
       <path
         d="M 11 10 L 6 8 L 4 6"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="1.2"
         strokeLinecap="round"
         opacity="0.5"
       />
       <path
         d="M 11 14 L 5 12 L 2 10"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="1"
         strokeLinecap="round"
         opacity="0.35"
       />
       <path
         d="M 10 18 L 4 17 L 1 16"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="0.8"
         strokeLinecap="round"
         opacity="0.25"
@@ -1050,7 +1038,7 @@ export function PhaseBootsIcon({ size = 32, className }: { size?: number; classN
       {/* Phase echo — faint ghost boot outline offset to the left */}
       <path
         d="M 7 10 L 7 20 L 5 22 L 5 25 L 15 25"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="0.6"
         strokeDasharray="2 2"
         fill="none"
@@ -1060,19 +1048,19 @@ export function PhaseBootsIcon({ size = 32, className }: { size?: number; classN
       {/* Speed arrow */}
       <path
         d="M 23 14 L 28 12 L 30 10"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="0.8"
         strokeLinecap="round"
         opacity="0.3"
       />
-      <polygon points="30,10 29,13 27,11" fill="#B28A33" opacity="0.3" />
+      <polygon points="30,10 29,13 27,11" fill="#F0AD4E" opacity="0.3" />
 
       {/* Boot plate / armor accent */}
       <path
         d="M 12 10 L 16 10 L 16 17 L 12 19 Z"
-        fill="#B28A33"
+        fill="#F0AD4E"
         opacity="0.15"
-        stroke="#B28A33"
+        stroke="#F0AD4E"
         strokeWidth="0.5"
       />
     </svg>
@@ -1311,15 +1299,15 @@ export function DraftPanelFrame({
           {/* Gold gradient for the frame */}
           <linearGradient id="draftGold" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#D4A843" />
-            <stop offset="40%" stopColor="#B28A33" />
+            <stop offset="40%" stopColor="#F0AD4E" />
             <stop offset="70%" stopColor="#8B6914" />
-            <stop offset="100%" stopColor="#B28A33" />
+            <stop offset="100%" stopColor="#F0AD4E" />
           </linearGradient>
           {/* Side pattern gradient */}
           <linearGradient id="draftSide" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#B28A33" stopOpacity="0.1" />
-            <stop offset="50%" stopColor="#B28A33" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#B28A33" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#F0AD4E" stopOpacity="0.1" />
+            <stop offset="50%" stopColor="#F0AD4E" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#F0AD4E" stopOpacity="0.1" />
           </linearGradient>
         </defs>
 
@@ -1355,7 +1343,7 @@ export function DraftPanelFrame({
             Z
           `}
           fill="none"
-          stroke="rgba(178,138,51,0.2)"
+          stroke="rgba(240,173,78,0.2)"
           strokeWidth="1"
         />
 
@@ -1366,7 +1354,7 @@ export function DraftPanelFrame({
             d="M 300 0 L 280 0 L 270 -8 L 265 -16 L 270 -20
                L 282 -14 L 300 -22
                L 318 -14 L 330 -20 L 335 -16 L 330 -8 L 320 0 Z"
-            fill="#B28A33"
+            fill="#F0AD4E"
             opacity="0.6"
           />
           {/* Crest inner detail */}
@@ -1376,36 +1364,36 @@ export function DraftPanelFrame({
             fill="rgba(0,0,0,0.4)"
           />
           {/* Crest top spike */}
-          <path d="M 300 -22 L 298 -28 L 300 -32 L 302 -28 Z" fill="#B28A33" opacity="0.5" />
+          <path d="M 300 -22 L 298 -28 L 300 -32 L 302 -28 Z" fill="#F0AD4E" opacity="0.5" />
           {/* Side spikes */}
-          <path d="M 265 -16 L 258 -18 L 262 -14 Z" fill="#B28A33" opacity="0.4" />
-          <path d="M 335 -16 L 342 -18 L 338 -14 Z" fill="#B28A33" opacity="0.4" />
+          <path d="M 265 -16 L 258 -18 L 262 -14 Z" fill="#F0AD4E" opacity="0.4" />
+          <path d="M 335 -16 L 342 -18 L 338 -14 Z" fill="#F0AD4E" opacity="0.4" />
         </g>
 
         {/* === CORNER DECORATIONS === */}
         {/* Top-left corner extension */}
         <g>
-          <path d="M 0 20 L -6 14 L -4 8 L 4 12 L 8 0 L 14 -4 L 20 0" stroke="#B28A33" strokeWidth="1.5" fill="none" opacity="0.5" />
-          <circle cx="0" cy="20" r="3" fill="#B28A33" opacity="0.4" />
-          <polygon points="10,0 14,-4 20,0 14,4" fill="#B28A33" opacity="0.3" />
+          <path d="M 0 20 L -6 14 L -4 8 L 4 12 L 8 0 L 14 -4 L 20 0" stroke="#F0AD4E" strokeWidth="1.5" fill="none" opacity="0.5" />
+          <circle cx="0" cy="20" r="3" fill="#F0AD4E" opacity="0.4" />
+          <polygon points="10,0 14,-4 20,0 14,4" fill="#F0AD4E" opacity="0.3" />
         </g>
         {/* Top-right corner extension */}
         <g>
-          <path d="M 600 20 L 606 14 L 604 8 L 596 12 L 592 0 L 586 -4 L 580 0" stroke="#B28A33" strokeWidth="1.5" fill="none" opacity="0.5" />
-          <circle cx="600" cy="20" r="3" fill="#B28A33" opacity="0.4" />
-          <polygon points="590,0 586,-4 580,0 586,4" fill="#B28A33" opacity="0.3" />
+          <path d="M 600 20 L 606 14 L 604 8 L 596 12 L 592 0 L 586 -4 L 580 0" stroke="#F0AD4E" strokeWidth="1.5" fill="none" opacity="0.5" />
+          <circle cx="600" cy="20" r="3" fill="#F0AD4E" opacity="0.4" />
+          <polygon points="590,0 586,-4 580,0 586,4" fill="#F0AD4E" opacity="0.3" />
         </g>
         {/* Bottom-left corner extension */}
         <g>
-          <path d="M 0 380 L -6 386 L -4 392 L 4 388 L 8 400 L 14 404 L 20 400" stroke="#B28A33" strokeWidth="1.5" fill="none" opacity="0.5" />
-          <circle cx="0" cy="380" r="3" fill="#B28A33" opacity="0.4" />
-          <polygon points="10,400 14,404 20,400 14,396" fill="#B28A33" opacity="0.3" />
+          <path d="M 0 380 L -6 386 L -4 392 L 4 388 L 8 400 L 14 404 L 20 400" stroke="#F0AD4E" strokeWidth="1.5" fill="none" opacity="0.5" />
+          <circle cx="0" cy="380" r="3" fill="#F0AD4E" opacity="0.4" />
+          <polygon points="10,400 14,404 20,400 14,396" fill="#F0AD4E" opacity="0.3" />
         </g>
         {/* Bottom-right corner extension */}
         <g>
-          <path d="M 600 380 L 606 386 L 604 392 L 596 388 L 592 400 L 586 404 L 580 400" stroke="#B28A33" strokeWidth="1.5" fill="none" opacity="0.5" />
-          <circle cx="600" cy="380" r="3" fill="#B28A33" opacity="0.4" />
-          <polygon points="590,400 586,404 580,400 586,396" fill="#B28A33" opacity="0.3" />
+          <path d="M 600 380 L 606 386 L 604 392 L 596 388 L 592 400 L 586 404 L 580 400" stroke="#F0AD4E" strokeWidth="1.5" fill="none" opacity="0.5" />
+          <circle cx="600" cy="380" r="3" fill="#F0AD4E" opacity="0.4" />
+          <polygon points="590,400 586,404 580,400 586,396" fill="#F0AD4E" opacity="0.3" />
         </g>
 
         {/* === SIDE BORDER PATTERNS — subtle repeating motifs === */}
@@ -1415,7 +1403,7 @@ export function DraftPanelFrame({
             key={`l${y}`}
             points={`4,${y} 8,${y + 8} 4,${y + 16} 0,${y + 8}`}
             fill="none"
-            stroke="#B28A33"
+            stroke="#F0AD4E"
             strokeWidth="0.5"
             opacity="0.2"
           />
@@ -1426,7 +1414,7 @@ export function DraftPanelFrame({
             key={`r${y}`}
             points={`596,${y} 600,${y + 8} 596,${y + 16} 592,${y + 8}`}
             fill="none"
-            stroke="#B28A33"
+            stroke="#F0AD4E"
             strokeWidth="0.5"
             opacity="0.2"
           />
@@ -1437,7 +1425,7 @@ export function DraftPanelFrame({
             key={`t${x}`}
             points={`${x},4 ${x + 8},8 ${x + 16},4 ${x + 8},0`}
             fill="none"
-            stroke="#B28A33"
+            stroke="#F0AD4E"
             strokeWidth="0.5"
             opacity="0.15"
           />
@@ -1448,7 +1436,7 @@ export function DraftPanelFrame({
             key={`b${x}`}
             points={`${x},396 ${x + 8},400 ${x + 16},396 ${x + 8},392`}
             fill="none"
-            stroke="#B28A33"
+            stroke="#F0AD4E"
             strokeWidth="0.5"
             opacity="0.15"
           />

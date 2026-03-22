@@ -42,7 +42,7 @@ export default function AttributeBar({
       aria-valuemax={100}
       aria-label={label}
       className="relative h-3 w-full rounded-sm overflow-hidden"
-      style={{ background: "linear-gradient(90deg, rgba(14,15,19,0.8) 0%, rgba(26,28,35,0.6) 100%)" }}
+      style={{ background: "linear-gradient(90deg, rgba(16,14,12,0.8) 0%, rgba(28,24,20,0.6) 100%)" }}
     >
       {/* Tick marks */}
       <div className="absolute inset-0 flex">

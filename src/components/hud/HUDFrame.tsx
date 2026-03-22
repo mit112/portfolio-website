@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import TopBar from "./TopBar";
-import Minimap from "./Minimap";
+
 import AbilityBar from "./AbilityBar";
 import AegisButton from "./AegisButton";
 import { cn } from "@/lib/utils";
@@ -34,20 +34,19 @@ export default function HUDFrame() {
   return (
     <>
       <TopBar />
-      <Minimap />
       <AbilityBar />
       <AegisButton />
 
       {/* Mobile hamburger button */}
       <button
         onClick={() => setMenuOpen(true)}
-        className="fixed top-3 right-4 z-50 md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+        className="fixed top-3 right-4 z-50 md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 group"
         aria-label="Open navigation menu"
         aria-expanded={menuOpen}
       >
-        <span className="block w-5 h-[2px] bg-text-primary rounded-full" />
-        <span className="block w-5 h-[2px] bg-text-primary rounded-full" />
-        <span className="block w-5 h-[2px] bg-text-primary rounded-full" />
+        <span className="block w-5 h-[2px] bg-text-primary rounded-full transition-colors group-hover:bg-accent-primary" />
+        <span className="block w-5 h-[2px] bg-text-primary rounded-full transition-colors group-hover:bg-accent-primary" />
+        <span className="block w-5 h-[2px] bg-text-primary rounded-full transition-colors group-hover:bg-accent-primary" />
       </button>
 
       {/* Mobile "Shop" overlay */}
@@ -91,7 +90,7 @@ export default function HUDFrame() {
               <button
                 key={id}
                 onClick={() => handleNavClick(id)}
-                className="bg-bg-secondary rounded p-4 text-center transition-colors hover:bg-bg-elevated active:bg-bg-elevated"
+                className="bg-bg-secondary rounded-sm p-4 text-center transition-all duration-300 border border-border-subtle hover:bg-bg-elevated hover:border-accent-primary/30 hover:shadow-[inset_0_0_0_1px_rgba(240,173,78,0.1)] active:bg-bg-elevated"
               >
                 <span className="block font-display text-sm uppercase text-text-primary">
                   {dota}
@@ -108,7 +107,7 @@ export default function HUDFrame() {
             <a
               href="/resume.pdf"
               download
-              className="block w-full py-3 rounded-lg bg-gradient-to-r from-accent-gold to-[#D4A843] text-bg-primary text-center font-display text-sm uppercase tracking-wider font-bold"
+              className="block w-full py-3 rounded-sm bg-gradient-to-r from-[#F0AD4E] via-[#FFCD8D] to-[#F0AD4E] text-bg-primary text-center font-display text-sm uppercase tracking-wider font-bold"
             >
               Download Resume
             </a>

@@ -96,12 +96,12 @@ function DraftOverlay({
     <div
       className={cn(
         "fixed inset-0 z-[70] flex flex-col items-center justify-center overflow-hidden",
-        "border-l border-r border-accent-gold/10",
+        "border-l border-r border-accent-gold/25",
         fadingOut && "pointer-events-none"
       )}
       style={{
         background:
-          "radial-gradient(ellipse at center, #141620 0%, #0a0b0f 70%, #050507 100%)",
+          "radial-gradient(ellipse at center, #161412 0%, #0d0b0a 70%, #070605 100%)",
         ...(whiteFlash
           ? { opacity: 1, filter: "brightness(2)" }
           : fadingOut
@@ -119,27 +119,27 @@ function DraftOverlay({
         className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(39,174,158,0.15) 2px, rgba(39,174,158,0.15) 3px)",
+            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(240,173,78,0.15) 2px, rgba(240,173,78,0.15) 3px)",
           backgroundSize: "100% 4px",
         }}
       />
 
-      {/* Teal glow — left side */}
+      {/* Gold glow — left side */}
       <div
         className="absolute left-0 top-1/2 -translate-y-1/2 w-[300px] h-[600px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at left center, rgba(39,174,158,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse at left center, rgba(240,173,78,0.06) 0%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
 
-      {/* Teal glow — right side */}
+      {/* Gold glow — right side */}
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[600px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at right center, rgba(39,174,158,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse at right center, rgba(240,173,78,0.06) 0%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />

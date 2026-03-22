@@ -1,5 +1,5 @@
-import { IntelligenceIcon, SwordDivider } from "@/components/icons/DotaIcons";
-import { RadiantAncient, RuneIcon } from "@/components/icons/DotaAssets";
+import Image from "next/image";
+import { SwordDivider } from "@/components/icons/DotaIcons";
 
 export default function HeroPortrait() {
   return (
@@ -9,27 +9,34 @@ export default function HeroPortrait() {
     >
       {/* ── Atmospheric background layers — VISIBLE this time ── */}
 
-      {/* Large teal glow behind portrait area */}
+      {/* Large gold glow behind portrait area */}
       <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-[600px] h-[800px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(39,174,158,0.1) 0%, transparent 70%)", filter: "blur(80px)" }} />
+        style={{ background: "radial-gradient(ellipse, rgba(240,173,78,0.1) 0%, transparent 70%)", filter: "blur(80px)" }} />
 
-      {/* Gold accent glow bottom-right */}
+      {/* Crimson accent glow bottom-right */}
       <div className="absolute right-0 bottom-0 w-[500px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(178,138,51,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
+        style={{ background: "radial-gradient(ellipse, rgba(169,27,13,0.06) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
       {/* Horizontal scan lines — like a monitor/HUD feel */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
-          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(39,174,158,0.15) 2px, rgba(39,174,158,0.15) 3px)",
+          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(240,173,78,0.15) 2px, rgba(240,173,78,0.15) 3px)",
           backgroundSize: "100% 4px",
         }} />
 
       {/* Radial ring decorations — like a targeting reticle */}
-      <div className="absolute left-[20%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-accent-teal/[0.06] pointer-events-none" />
-      <div className="absolute left-[20%] top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-accent-teal/[0.03] pointer-events-none ml-[-100px] mt-[-100px]" />
+      <div className="absolute left-[20%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-accent-primary/[0.06] pointer-events-none" />
+      <div className="absolute left-[20%] top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-accent-primary/[0.03] pointer-events-none ml-[-100px] mt-[-100px]" />
 
-      {/* Ancient silhouette background element */}
-      <RadiantAncient className="absolute right-[5%] top-[10%] w-[300px] h-[500px] text-accent-teal opacity-[0.04] pointer-events-none" />
+
+      {/* Dota 2 logo watermark */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/dota/dota2-logo.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute right-[5%] top-[10%] w-[280px] h-auto opacity-[0.07] pointer-events-none select-none mix-blend-soft-light"
+      />
 
       {/* ── Content ── */}
       <div className="relative max-w-6xl mx-auto px-6 w-full">
@@ -37,39 +44,42 @@ export default function HeroPortrait() {
           {/* ── Portrait Frame ── */}
           <div className="relative flex-shrink-0 group">
             {/* Outer ornamental double-frame */}
-            <div className="absolute -inset-4 border border-accent-teal/30 rounded-lg" />
-            <div className="absolute -inset-2 border border-accent-teal/20 rounded" />
+            <div className="absolute -inset-4 border border-accent-primary/20 rounded-sm" />
+            <div className="absolute -inset-2 border border-accent-primary/15 rounded-sm" />
 
             {/* Corner accents on outer frame */}
-            <div className="absolute -top-4 -left-4 w-5 h-5 border-t-2 border-l-2 border-accent-teal/70 rounded-tl" />
-            <div className="absolute -top-4 -right-4 w-5 h-5 border-t-2 border-r-2 border-accent-teal/70 rounded-tr" />
-            <div className="absolute -bottom-4 -left-4 w-5 h-5 border-b-2 border-l-2 border-accent-teal/70 rounded-bl" />
-            <div className="absolute -bottom-4 -right-4 w-5 h-5 border-b-2 border-r-2 border-accent-teal/70 rounded-br" />
+            <div className="absolute -top-4 -left-4 w-5 h-5 border-t-2 border-l-2 border-accent-primary/50" />
+            <div className="absolute -top-4 -right-4 w-5 h-5 border-t-2 border-r-2 border-accent-primary/50" />
+            <div className="absolute -bottom-4 -left-4 w-5 h-5 border-b-2 border-l-2 border-accent-primary/50" />
+            <div className="absolute -bottom-4 -right-4 w-5 h-5 border-b-2 border-r-2 border-accent-primary/50" />
 
             {/* Portrait container */}
             <div
-              className="w-56 h-72 md:w-64 md:h-80 rounded bg-gradient-to-br from-[#252830] via-[#1E2029] to-[#15171D] border border-border-subtle overflow-hidden relative"
-              style={{ boxShadow: "inset 0 0 40px rgba(39,174,158,0.08), 0 0 30px rgba(0,0,0,0.5)" }}
+              className="w-56 h-72 md:w-64 md:h-80 rounded-sm bg-gradient-to-br from-[#2A2520] via-[#1C1B1B] to-[#141210] border border-border-subtle overflow-hidden relative"
+              style={{ boxShadow: "inset 0 0 0 1px rgba(240,173,78,0.15), inset 0 0 40px rgba(240,173,78,0.06), 0 0 40px rgba(0,0,0,0.4)" }}
             >
               {/* Inner ambient glow */}
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(39,174,158,0.06)_0%,transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(240,173,78,0.06)_0%,transparent_70%)]" />
               {/* Bottom fade */}
               <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/90 via-transparent to-transparent" />
 
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-text-muted text-base font-mono tracking-widest uppercase opacity-50">
-                  Portrait
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="font-display text-6xl md:text-7xl font-bold text-accent-primary/30 tracking-wider select-none"
+                  style={{ textShadow: "0 0 40px rgba(240,173,78,0.15)" }}>
+                  MS
+                </span>
+                <span className="text-[9px] font-mono text-text-muted/50 uppercase tracking-[4px] mt-2">
+                  Software Engineer
                 </span>
               </div>
 
               {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent-teal to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent-primary to-transparent" />
               {/* Top accent line, subtle */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-teal/30 to-transparent" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent" />
             </div>
 
             {/* Floating rune decoration */}
-            <RuneIcon size={18} className="absolute -right-8 top-1/4 text-accent-teal/20 animate-pulse" />
 
             {/* Attribute dots below portrait */}
             <div className="flex justify-center gap-4 mt-5">
@@ -94,34 +104,35 @@ export default function HeroPortrait() {
           {/* ── Hero Info ── */}
           <div className="text-center md:text-left flex-1">
             {/* Name — large, glowing, the centerpiece */}
-            <h1 className="font-display text-5xl md:text-7xl font-bold tracking-wider text-text-primary text-glow-teal leading-none">
+            <h1 className="font-display text-5xl md:text-7xl font-bold tracking-wider text-text-primary text-glow-primary leading-none">
               MIT SHETH
             </h1>
 
             {/* Title */}
-            <p className="text-xl md:text-2xl text-accent-teal mt-3 tracking-wide font-light">
-              iOS Engineer &mdash;{" "}
-              <span className="text-text-secondary">Swift Artisan</span>
+            <p className="text-xl md:text-2xl text-accent-primary mt-3 tracking-wide font-light">
+              Software Engineer &mdash;{" "}
+              <span className="text-text-secondary">iOS &amp; Swift</span>
             </p>
 
             {/* Ornamental divider */}
             <div className="relative max-w-sm mt-6 mb-6 mx-auto md:mx-0">
-              <div className="h-px bg-gradient-to-r from-accent-teal/50 via-border-subtle to-transparent" />
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rotate-45 bg-accent-teal/40" />
+              <div className="h-px bg-gradient-to-r from-accent-primary/50 via-border-subtle to-transparent" />
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rotate-45 bg-accent-primary/40" />
             </div>
 
-            {/* Role tags */}
+            {/* Role tags — styled as earned badges */}
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
               {["Builder", "Shipper", "Problem Solver"].map((role) => (
                 <span
                   key={role}
-                  className="inline-flex items-center px-4 py-1.5 rounded-full text-sm
-                    bg-gradient-to-r from-bg-secondary to-bg-elevated
-                    border border-border-subtle text-text-secondary
-                    hover:border-accent-teal/30 hover:text-text-primary
-                    hover:shadow-[0_0_16px_rgba(39,174,158,0.08)]
+                  className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-sm text-sm font-mono uppercase tracking-wider
+                    bg-accent-primary/[0.08] text-accent-primary
+                    border border-accent-primary/20
+                    shadow-[inset_0_0_0_1px_rgba(240,173,78,0.05)]
+                    hover:bg-accent-primary/[0.15] hover:border-accent-primary/40
                     transition-all duration-300"
                 >
+                  <span className="text-[8px]">&#9670;</span>
                   {role}
                 </span>
               ))}
@@ -138,7 +149,7 @@ export default function HeroPortrait() {
                   className="text-accent-gold text-sm"
                   style={{
                     textShadow:
-                      "0 0 6px rgba(178,138,51,0.6), 0 0 18px rgba(178,138,51,0.2)",
+                      "0 0 6px rgba(240,173,78,0.6), 0 0 18px rgba(240,173,78,0.2)",
                   }}
                 >
                   ◆
@@ -148,7 +159,7 @@ export default function HeroPortrait() {
 
             {/* Primary attribute */}
             <div className="flex items-center gap-2 justify-center md:justify-start mb-8">
-              <IntelligenceIcon size={14} className="text-attr-int" />
+              <Image src="/dota/attr-int.png" alt="Intelligence" width={14} height={14} />
               <span className="font-mono text-xs uppercase tracking-[3px] text-attr-int">
                 Intelligence
               </span>
@@ -157,12 +168,35 @@ export default function HeroPortrait() {
 
             {/* One-liner — the hook */}
             <p className="text-lg md:text-xl text-text-secondary max-w-lg leading-relaxed">
-              4 shipped iOS apps. 1 live on the App Store.
+              <span className="text-text-primary font-medium">4 shipped apps. 1 live on the App Store.</span>
               <br />
-              <span className="text-text-primary font-medium">
-                0 unsolved problems left standing.
-              </span>
+              Built with Swift, SwiftUI, and an obsession for clean architecture.
             </p>
+
+            {/* CTAs — above the fold */}
+            <div className="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
+              <a
+                href="#abilities"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-sm
+                  bg-gradient-to-r from-[#F0AD4E] via-[#FFCD8D] to-[#F0AD4E]
+                  text-bg-primary font-display text-sm uppercase tracking-[2px] font-bold
+                  hover:shadow-[0_0_30px_rgba(240,173,78,0.25)] hover:scale-[1.02]
+                  active:scale-[0.99] transition-all duration-300"
+              >
+                View Projects
+              </a>
+              <a
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-sm
+                  border border-accent-primary/30 text-accent-primary
+                  font-display text-sm uppercase tracking-[2px] font-bold
+                  hover:bg-accent-primary/10 hover:border-accent-primary/50
+                  transition-all duration-300"
+              >
+                Download Resume
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@ export default function Tooltip({ children, content }: TooltipProps) {
           {/* Triangle pointer */}
           <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0
             border-l-[5px] border-r-[5px] border-t-[5px]
-            border-l-transparent border-r-transparent border-t-border-subtle" />
+            border-l-transparent border-r-transparent border-t-bg-secondary" />
         </div>
       )}
     </div>
