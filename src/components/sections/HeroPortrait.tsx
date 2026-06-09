@@ -1,7 +1,13 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import Image from "next/image";
 import { SwordDivider } from "@/components/icons/DotaIcons";
 
+// Drop a photo at public/images/portrait.jpg and it replaces the monogram.
+const PORTRAIT_PATH = "/images/portrait.jpg";
+
 export default function HeroPortrait() {
+  const hasPortrait = existsSync(join(process.cwd(), "public", "images", "portrait.jpg"));
   return (
     <section
       id="hero"
@@ -63,15 +69,27 @@ export default function HeroPortrait() {
               {/* Bottom fade */}
               <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/90 via-transparent to-transparent" />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-display text-6xl md:text-7xl font-bold text-accent-primary/30 tracking-wider select-none"
-                  style={{ textShadow: "0 0 40px rgba(240,173,78,0.15)" }}>
-                  MS
-                </span>
-                <span className="text-[9px] font-mono text-text-muted/50 uppercase tracking-[4px] mt-2">
-                  Software Engineer
-                </span>
-              </div>
+              {hasPortrait ? (
+                <Image
+                  src={PORTRAIT_PATH}
+                  alt="Mit Sheth"
+                  fill
+                  sizes="(min-width: 768px) 256px, 224px"
+                  className="object-cover"
+                  priority
+                  unoptimized
+                />
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="font-display text-6xl md:text-7xl font-bold text-accent-primary/30 tracking-wider select-none"
+                    style={{ textShadow: "0 0 40px rgba(240,173,78,0.15)" }}>
+                    MS
+                  </span>
+                  <span className="text-[9px] font-mono text-text-muted/50 uppercase tracking-[4px] mt-2">
+                    Software Engineer
+                  </span>
+                </div>
+              )}
 
               {/* Bottom accent line */}
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent-primary to-transparent" />
@@ -168,7 +186,7 @@ export default function HeroPortrait() {
 
             {/* One-liner — the hook */}
             <p className="text-lg md:text-xl text-text-secondary max-w-lg leading-relaxed">
-              <span className="text-text-primary font-medium">4 shipped apps. 1 live on the App Store.</span>
+              <span className="text-text-primary font-medium">4 shipped iOS apps. 2 live on the App Store. 1 IEEE Best Paper.</span>
               <br />
               Built with Swift, SwiftUI, and an obsession for clean architecture.
             </p>
