@@ -1,7 +1,6 @@
 "use client";
 
 import SectionHeading from "@/components/ui/SectionHeading";
-import AttributeBar from "@/components/ui/AttributeBar";
 import { attributes } from "@/data/skills";
 import Image from "next/image";
 
@@ -73,27 +72,26 @@ export default function Attributes() {
                   <span className="text-text-muted text-sm hidden sm:inline">
                     {attr.plainName}
                   </span>
-                  <div className="ml-auto flex items-center gap-2">
-                    <span
-                      className="font-mono text-lg font-bold"
-                      style={{
-                        color: colors.primary,
-                        textShadow: `0 0 12px ${colors.glow}`,
-                      }}
-                    >
-                      {attr.percentage}
-                    </span>
-                    <span className="text-text-muted text-xs font-mono">/100</span>
-                  </div>
                 </div>
 
-                {/* Bar */}
-                <AttributeBar
-                  percentage={attr.percentage}
-                  color={colors.primary}
-                  label={`${attr.plainName}: ${attr.percentage}%`}
-                  animated
-                />
+                {/* Proof stat — a real fact where a game would show a number */}
+                <div className="flex items-center gap-3">
+                  <span
+                    className="text-[6px]"
+                    style={{ color: colors.primary, textShadow: `0 0 8px ${colors.glow}` }}
+                  >
+                    {"◆"}
+                  </span>
+                  <span
+                    className="font-mono text-sm md:text-base font-bold tracking-wide"
+                    style={{
+                      color: colors.primary,
+                      textShadow: `0 0 12px ${colors.glow}`,
+                    }}
+                  >
+                    {attr.proof}
+                  </span>
+                </div>
 
                 {/* Skill pills */}
                 <div className="flex flex-wrap gap-2 mt-4">

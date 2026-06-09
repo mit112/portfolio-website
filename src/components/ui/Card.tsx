@@ -53,7 +53,7 @@ export default function Card({
       <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-accent-primary/60" />
 
       {/* Content */}
-      <div className="relative">{children}</div>
+      <div className="relative h-full">{children}</div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import { projects } from "@/data/projects";
 const ABILITIES = projects.map((p) => ({
   key: p.key,
   label: p.name,
-  link: p.links.appStore ?? p.links.github ?? "#",
+  link: p.links.appStore ?? p.links.paper ?? p.links.github ?? "#",
 }));
 
 export default function AbilityBar() {

@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Mit Sheth — Software Engineer",
   description:
-    "Software engineer specializing in iOS. 4 shipped apps, 1 live on the App Store, IEEE publication, MS from Northeastern.",
+    "Software engineer specializing in iOS. 4 shipped apps, 2 live on the App Store, IEEE Best Paper, MS from Northeastern.",
   other: { "theme-color": "#131313" },
   openGraph: {
     title: "Mit Sheth — Software Engineer",

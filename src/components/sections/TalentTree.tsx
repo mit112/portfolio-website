@@ -33,9 +33,9 @@ const levels: TalentLevel[] = [
       detail: "GPA: 3.8",
     },
     right: {
-      title: "iOS Co-Op Engineer",
+      title: "Software Engineering Co-Op",
       subtitle: "National Internet Observatory",
-      detail: "2024",
+      detail: "2024 – 2025",
     },
   },
   {
@@ -46,9 +46,9 @@ const levels: TalentLevel[] = [
       detail: "Published Research",
     },
     right: {
-      title: "Software Intern",
+      title: "Software Developer Intern",
       subtitle: "Nakshatra Eye Care",
-      detail: "2022",
+      detail: "2021 – 2022",
     },
   },
   {

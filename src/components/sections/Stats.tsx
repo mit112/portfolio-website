@@ -4,8 +4,8 @@ import { education } from "@/data/education";
 import { UltimateDiamond } from "@/components/icons/DotaIcons";
 
 const stats = [
-  { label: "APPS SHIPPED", value: "4", color: "text-accent-gold" },
-  { label: "APP STORE LIVE", value: "1", color: "text-rarity-legendary" },
+  { label: "IOS APPS SHIPPED", value: "4", color: "text-accent-gold" },
+  { label: "APP STORE LIVE", value: "2", color: "text-rarity-legendary" },
   { label: "INTERNSHIPS", value: "3", color: "text-accent-gold" },
   { label: "IEEE PAPERS", value: "1", color: "text-attr-int" },
   { label: "BEST PAPER", value: "\u2605", color: "text-accent-gold" },

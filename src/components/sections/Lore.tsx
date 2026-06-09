@@ -23,9 +23,9 @@ export default function Lore() {
             I&apos;ve been obsessed with one thing since my first line of Swift:
             making software feel inevitable. From Mumbai to Boston, through a
             Master&apos;s at Northeastern and an iOS co-op at the National
-            Internet Observatory, I&apos;ve shipped four apps &mdash; each one
-            pushing deeper into protocol-oriented design, encryption, and
-            real-time sync.
+            Internet Observatory, I&apos;ve shipped four iOS apps &mdash; two
+            live on the App Store &mdash; each one pushing deeper into
+            protocol-oriented design, encryption, and real-time sync.
           </p>
 
           {/* Punchline — brighter */}

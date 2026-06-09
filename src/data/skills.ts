@@ -5,7 +5,8 @@ export interface SkillCategory {
   name: string;
   plainName: string;
   color: string;
-  percentage: number;
+  /** A real, verifiable fact — shown where games would show a stat number. */
+  proof: string;
   skills: string[];
 }
 
@@ -22,23 +23,23 @@ export const attributes: SkillCategory[] = [
     name: "Strength",
     plainName: "Engineering & Architecture",
     color: "var(--color-attr-str)",
-    percentage: 85,
-    skills: ["Swift", "SwiftUI", "UIKit", "Core Data", "MVVM", "Protocol-Oriented Design"],
+    proof: "40% faster startup & battery gains shipped at NIO",
+    skills: ["Swift", "SwiftUI", "UIKit", "Core Data", "SwiftData", "MVVM", "Protocol-Oriented Design"],
   },
   {
     attribute: "agi",
     name: "Agility",
     plainName: "Shipping & Velocity",
     color: "var(--color-attr-agi)",
-    percentage: 80,
-    skills: ["Firebase", "Git", "CI/CD", "App Store Connect", "TestFlight", "Agile"],
+    proof: "4 iOS apps shipped — 2 live on the App Store",
+    skills: ["Firebase", "CloudKit", "Git", "CI/CD", "App Store Connect", "TestFlight", "Agile"],
   },
   {
     attribute: "int",
     name: "Intelligence",
     plainName: "Design & Problem Solving",
     color: "var(--color-attr-int)",
-    percentage: 90,
+    proof: "IEEE Best Paper — ICACTA 2023, among 300 presentations",
     skills: ["HIG Compliance", "UX Patterns", "async/await", "Combine", "Algorithm Design"],
   },
 ];
