@@ -66,7 +66,7 @@ export default function Inventory() {
                     <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-accent-primary/0 group-hover:border-accent-primary/30 transition-colors" />
 
                     {itemImages[item.name] && (
-                      <Image src={itemImages[item.name]} alt={item.name} width={56} height={40} className="rounded-sm mb-1.5 opacity-80 group-hover:opacity-100 transition-opacity" />
+                      <Image src={itemImages[item.name]} alt={item.name} width={55} height={40} style={{ height: "auto" }} className="rounded-sm mb-1.5 opacity-80 group-hover:opacity-100 transition-opacity" />
                     )}
                     <span className="text-[8px] text-text-muted uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-primary/80 transition-colors">
                       {item.category}
@@ -178,7 +178,7 @@ export default function Inventory() {
                   {/* Gold inner glow on hover */}
                   <div className="absolute inset-0 rounded-sm bg-accent-primary/0 group-hover:bg-accent-primary/[0.03] transition-colors pointer-events-none" />
 
-                  <Image src="/dota/item-tp.png" alt="TP Scroll" width={44} height={32} className="rounded-sm mb-1" />
+                  <Image src="/dota/item-tp.png" alt="TP Scroll" width={44} height={32} style={{ height: "auto" }} className="rounded-sm mb-1" />
                   <span className="text-[8px] text-text-muted uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-primary/80 transition-colors">
                     {tpItem.category}
                   </span>
@@ -226,7 +226,7 @@ export default function Inventory() {
                   <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-accent-gold/20 group-hover:border-accent-gold/50 transition-colors rounded-tl-sm" />
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-accent-gold/20 group-hover:border-accent-gold/50 transition-colors rounded-br-sm" />
 
-                  <Image src="/dota/item-tome.png" alt="Tome of Knowledge" width={44} height={32} className="rounded-sm mb-1" />
+                  <Image src="/dota/item-tome.png" alt="Tome of Knowledge" width={44} height={32} style={{ height: "auto" }} className="rounded-sm mb-1" />
                   <span className="text-[8px] text-accent-gold/60 uppercase tracking-[2px] mb-1.5 font-mono group-hover:text-accent-gold/80 transition-colors">
                     {neutralItem.category}
                   </span>
